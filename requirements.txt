@@ -1,0 +1,6 @@
+dict2xml==1.7.3
+Faker==17.6.0
+Flask==2.2.3
+Flask_RESTful==0.3.9
+flasgger==0.9.5
+python-dotenv==1.0.0

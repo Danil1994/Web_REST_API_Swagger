@@ -1,0 +1,43 @@
+      parameters:
+        - name: driver_abbr
+          in: path
+          type: string
+          required: true
+          description: "Abbreviation of the driver"
+        - name: format
+          in: query
+          type: string
+          enum:
+            - json
+            - xml
+          default: json
+          description: "Format of the output data"
+      responses:
+        200:
+          description: "Successful response"
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                abbr:
+                  type: string
+                driver_name:
+                  type: string
+                lap time:
+                  type: string
+                start time:
+                  type: string
+                end time:
+                  type: string
+          examples:
+            application/json:
+                {
+                  "abbr": "DRR",
+                  "driver_name": "Daniel Ricciardo",
+                  "lap_time": "0:02:47.987",
+                  "start_time": "2018-05-24_12:11:24.067",
+                  "end_time": "2018-05-24_12:14:12.054"
+                }
+        404:
+          description: "Driver doesn't exist"

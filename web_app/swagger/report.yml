@@ -1,0 +1,55 @@
+parameters:
+    - name: format
+      in: query
+      type: string
+      enum:
+        - json
+        - xml
+      default: json
+      description: "Format of the output data"
+    - name: order
+      in: query
+      type: string
+      enum:
+        - asc
+        - desc
+      default: asc
+      description: "Ascending or descending order"
+responses:
+        200:
+          description: "Successful response"
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                abbr:
+                  type: string
+                driver_name:
+                  type: string
+                lap_time:
+                  type: string
+                start_time:
+                  type: string
+                end_time:
+                  type: string
+          examples:
+            application/json:
+              [
+                {
+                  "abbr": "DRR",
+                  "driver_name": "Daniel Ricciardo",
+                  "lap time": "0:02:47.987",
+                  "start time": "2018-05-24_12:11:24.067",
+                  "end time": "2018-05-24_12:14:12.054"
+                },
+                {
+                  "abbr": "SVF",
+                  "driver_name": "Sebastian Vettel",
+                  "lap time": "0:01:04.415",
+                  "start time": "2018-05-24_12:02:58.917",
+                  "end time": "2018-05-24_12:04:03.332"
+                }
+              ]
+        404:
+          description: Report data not found
